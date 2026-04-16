@@ -1,0 +1,8 @@
+# Use python 3.10.20
+# tensorflow 2.15 will automatically install keras 2.15
+pandas==2.3.3
+scikit-learn==1.7.2
+numpy==1.26.4
+pillow==12.1.1
+nibabel==5.4.2
+tensorflow==2.15.0
