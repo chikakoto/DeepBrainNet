@@ -26,10 +26,10 @@ while getopts 'uhd:o:m:' flag; do
   esac
 done
 
-
-CUDA_VISIBLE_DEVICES=$(get_CUDA_VISIBLE_DEVICES) || exit
-export CUDA_VISIBLE_DEVICES
-
+# Modified to use CPU instead of GPU
+#CUDA_VISIBLE_DEVICES=$(get_CUDA_VISIBLE_DEVICES) || exit
+#export CUDA_VISIBLE_DEVICES
+export CUDA_VISIBLE_DEVICES=0
 
 
 
@@ -39,5 +39,6 @@ mkdir ../tmp/Test/
 
 python Slicer.py $DATA_PATH ../tmp/
 
-module load python/anaconda/3.5.6+tensorflow-gpu+pillow
+# Comment out to execute locally (not on HCP)
+# module load python/anaconda/3.5.6+tensorflow-gpu+pillow
 python Model_Test.py ../tmp/ ${OUT_PATH}pred.csv $MODEL
